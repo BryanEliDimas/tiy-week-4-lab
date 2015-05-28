@@ -101,6 +101,17 @@ h4 {
   height: 100%;
   float: left;
   background-size: cover;
+  position: relative; /* so it works with the position: absolute; in .post-title */
+
+  :hover {
+    color: white;
+  }
+}
+
+.post-title {
+  position: absolute; /* to vertically align it inside of .posts */
+  bottom: 0;
+  text-align: center;
 }
 
 .post1 {

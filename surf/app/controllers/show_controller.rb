@@ -2,6 +2,7 @@ class ShowController < ApplicationController
 
   before_action do
     @posts = []
+    @posts << Post.new("A FANTASTIC ENGADGING HEADLINE GOES HERE", "waffles.jpg", "waffles are the best...")
     @posts << Post.new("ANOTHER COOL POST", "waffles.jpg", "waffles are the best...")
     @posts << Post.new("POST TITLE", "pancakes.jpg", "pancakes are the best...")
     @posts << Post.new("HERE'S ANOTHER LONGER POST TITLE", "bacon.jpg", "bacon is the best...")
@@ -14,6 +15,7 @@ class ShowController < ApplicationController
 
   end
 end
+
 
 class Post
   attr_accessor :title, :image, :content

@@ -40,7 +40,7 @@
   <div id="content">
     <div class="constrain">
       <article>
-        <h1>A FANTASTIC ENGADGING HEADLINE GOES HERE</h1>
+        <h1><%= @posts[0].title %></h1>
         <p>
           <span style="color: #005EAE;">Anne Marie</span> on <u>Monday Oct 7 9:22pm</u>
         </p>
@@ -73,16 +73,32 @@
   <div id="most-popular">
         <h1>MOST POPULAR POSTS</h1>
       <div class="posts post1">
-        <div class="cover"></div>
+        <div class="cover">
+          <div class="post-title">
+            <%= @posts[1].title %>
+          </div>
+        </div>
       </div>
       <div class="posts post2">
-        <div class="cover"></div>
+        <div class="cover">
+          <div class="post-title">
+            <%= @posts[2].title %>
+          </div>
+        </div>
       </div>
       <div class="posts post3">
-        <div class="cover"></div>
+        <div class="cover">
+          <div class="post-title">
+            <%= @posts[3].title %>
+          </div>
+        </div>
       </div>
       <div class="posts last">
-        <div class="cover"></div>
+        <div class="cover">
+          <div class="post-title">
+            <%= @posts[4].title %>
+          </div>
+        </div>
       </div>
   </div>
 
