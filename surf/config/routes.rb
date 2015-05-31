@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'show#blogs'
+  root 'show#index'
+
+  get 'posts/:post' => 'show#blogs', as: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

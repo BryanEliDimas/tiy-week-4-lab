@@ -1,1 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Surf & Paddle Co.</title>
+    <%= stylesheet_link_tag("application") %>
+    <%= javascript_include_tag("application") %>
+
+
+  </head>
+
+  <body class="index">
+    <div id="main">
+  <div id="banner">
+    <div class="cover">
+      <div class="constrain" style="padding-top: 1em;">
+        <span style="text-align: left; padding-top: 2em;" class="logo"><a href="/" style="text-decoration: none; color: black">SURF & PADDLE CO. BLOG</a></span>
+        <!-- Menu -->
+        <nav>
+            <ul>
+              <li>ABOUT</li>
+              <li>SEARCH</li>
+            </ul>
+        </nav>
+
+        <div id="company">
+          SURF & PADDLE CO.
+        </div>
+        <p>
+          An Iron Yard Academy project Est. Fall 2013
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div class="constrain">
+      <article>
+        <% if params[:post].nil? %>
+
+        <h1><%= "#{@posts[0].title}" %></h1>
+        <p>
+          <span style="color: #005EAE;">Anne Marie</span> on <u>Monday Oct 7 9:22pm</u>
+        </p>
+        <p>Locavore ea meggings, deep v gentrify bespoke butcher yr typewriter. Nisi sunt 8-bit craft beer, leggings deep v biodiesel Williamsburg. Actually hashtag art party nascent squid pour-over. Kitsch Vice cray, Marfa brunch fingerstache official Schlitz Blue Bottle cilium. Mlkshk 8-bit aliquip fingerstache sent.</p>
+        <p>Distillery ad sriracha, synth wolf street art brunch acceptor consectetur art party irony fugal. Duis chia yr, pour-over Portland relit High Life non aesthetic fugal tattooed shabby chic mixtape.</p>
+        <h2 style="color: #005EAE; padding-left: .6em;">WOAH, THAT&apos;S RADICAL!</h2>
+        <p>Swag nisi mixtape cray, non hashtag blog tote bag dolor bitters before they sold out ea dolor. Raw denim mixtape drinking vinegar, Vice 3 wolf moon authentic official cute id. Keffiyeh yr retro salvia do aliqua (rollover) leggings selvage narwhal farm-to-table dolor Tonx DIY photo booth. Bitters gastropub non
+          3 wolf moon Blue Bottle organic, cray aesthetic jean shorts relit umami. Milkshake roof party cardigan, farm-to-table acute plaid wolf master cleanse. Thundercats tattooed lo-fi culpa, mollit Pinterest American Apparel. 3 wolf moon VHS help, Tonx beard chambray sustainable jean shorts synth mlkshk fugal excepted banh mi eu whatever.</p>
+        <p>Vinyl sartorial culpa bespoke labore, ethical readymade tofu selfies ut locavore commodo mumblecore paleo typewriter. Mumblecore selfie nostrud, asymmetrical 90’s fanny pack est Blue Bottle ethnic blog. Narwal Shoreditch fix tofu, nice before.</p>
+
+        <% else %>
+          <%= render partial: 'read', locals: {title: @single_post, which_post: @posts[@the_index].content} %>
+        <% end %>
+      </article>
+      <aside>
+        <p class="circle">
+          <div class="cover"></div>
+        </p>
+        <h4 style="font-size: 1.2em; clear: both; text-align: center;">ANNE MARIE</h4>
+        <!-- <img src="" style="width: 80%;" class="cover"/> -->
+        <div class="girl">
+          <div class="cover"></div>
+        </div>
+        <h4>SIDEBAR SECTION HEADING</h4>
+        <p>
+          Underweaaar jeje poulet tikka masala para tú la bodaaa. Ti aamoo! aaaaaah la bodaaa hana dul sae Ti aamoo! aaaaaah la bodaaa hana dul sae
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <div id="most-popular">
+    <h1>MOST POPULAR POSTS</h1>
+    <% @posts.shift %>  <!-- don't show the latest blog post -->
+    <% counter = 1 %>
+    <% @posts.each do |post| %>
+      <div class="posts <%= "post"+counter.to_s %>">
+        <!-- background-image: image_url('c1.jpg'); -->
+        <div class="cover">
+          <div class="post-title">
+            <%= link_to "#{post.title}", post_path(post: post.title) %>
+          </div>
+        </div>
+      </div>
+      <% counter += 1 %>
+    <% end %>
+
+  </div>
+
+
+
+
+
+  <div id="footer">
+    <div class="constrain">
+      <%= image_tag "tiy.png", :style => "position: relative; top: -2em;" %>
+      <span id="cright">The Iron Yard Copyright 2013, All rights reserved</span>
+      <nav id="bottom-nav">
+          <li>Nav item 1</li>
+          <span class="verticalLine"></span>
+          <li>Nav item 2</li>
+          <span class="verticalLine"></span>
+          <li>Nav item 3</li>
+          <span class="verticalLine"></span>
+          <li>Nav item 4</li>
+      </nav>
+    </div>
+  </div>
+
+</div>
+
+  </body>
+</html>
+
+
 <%= yield %>
