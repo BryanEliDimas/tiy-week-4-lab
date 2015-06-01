@@ -79,14 +79,16 @@
     <% @posts.shift %>  <!-- don't show the latest blog post -->
     <% counter = 1 %>
     <% @posts.each do |post| %>
-      <div class="posts <%= "post"+counter.to_s %>">
-        <!-- background-image: image_url('c1.jpg'); -->
-        <div class="cover">
-          <div class="post-title">
-            <%= link_to "#{post.title}", post_path(post: post.title) %>
-          </div>
-        </div>
-      </div>
+
+            <%= link_to post_path(post: post.title.parameterize) do %>
+              <div class='posts post<%= counter.to_s %>'>
+                <div class='cover'>
+                  <div class='post-title'><%= post.title %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
       <% counter += 1 %>
     <% end %>
 
